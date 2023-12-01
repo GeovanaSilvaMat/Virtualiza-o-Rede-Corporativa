@@ -1,8 +1,12 @@
 #!/bin/bash
 
-  sudo sysctl net.ipv4.ip_forward=1
-  sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
-  
+sudo sysctl net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+# aplicação do monitoramento do tráfego de rede considerando a porta 80
+sudo apt install tcpdump -y
+sudo tcpdump -i eth1 -c 5 port 80
+
 # Atualiza a lista de pacotes
 sudo apt-get update
 
