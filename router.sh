@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# configuração da máquina como vagrant
   sudo sysctl net.ipv4.ip_forward=1
   sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
   
