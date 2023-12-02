@@ -6,8 +6,8 @@ Vagrant.configure("2") do |config|
   # Configuração do roteador
   config.vm.define "router" do |router|
     router.vm.box = "ubuntu/bionic64"
-    router.vm.network "private_network", type: "dhcp", name: "eth1"
-    router.vm.network "private_network", type: "dhcp", name: "wlan1"
+    router.vm.network "private_network", type: "static", ip: "192.168.50.1", name: "eth1"
+    router.vm.network "private_network", type: "static", ip: "192.168.50.2", name: "wlan1"
     router.vm.hostname = "router"
     router.vm.provision "shell", path: "router.sh"
   end
